@@ -10,12 +10,12 @@ function Cell({ letter, status }) {
 }
 
 function Guess({ guess, answer }) {
-  const checkedWord = checkGuess(guess?.guessWord, answer);
+  const checkedWord = checkGuess(guess, answer);
 
   return <p className="guess">
     {range(0, 5).map((v) => (
       <Cell
-          key={`${guess?.id}-${crypto.randomUUID()}`}
+          key={`${v}-${crypto.randomUUID()}`}
           letter={checkedWord ? checkedWord[v].letter : undefined}
           status={checkedWord ? checkedWord[v].status : undefined}
       />

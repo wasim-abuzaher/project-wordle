@@ -1,7 +1,7 @@
 import React from 'react';
 
 const INITIAL_INPUT = '';
-function GuessInput({ onGuessSubmit }) {
+function GuessInput({ onGuessSubmit, gameStatus }) {
   const [inputValue, setInputValue] = React.useState(INITIAL_INPUT);
 
   function onSubmit(e) {
@@ -24,6 +24,7 @@ function GuessInput({ onGuessSubmit }) {
         maxLength={5}
         pattern="[A-Za-z]{5}"
         title="Guess word should be 5 alphabitical letters"
+        disabled={gameStatus !== 'running'}
     />
   </form>;
 }
